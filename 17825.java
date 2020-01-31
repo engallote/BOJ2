@@ -15,7 +15,6 @@ public class Main {
 		
 		idx = 0;
 		int size = 0, res = 0;
-		
 		q.offer(new Pair(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), 0));
 		
 		while(!q.isEmpty() && idx < 10){
@@ -36,14 +35,11 @@ public class Main {
 	}
 	private static void move(Point a, Point b, Point c, Point d, int sum) {
 		int num = order[idx];
-		boolean flag = false;
 		//A move
 		int x = a.x, y = a.y;
 		if(!end[x][y]){
-			flag = false;
 			while(--num >= 0){
 				if(end[x][y]) break;
-				flag = true;
 				y += 1;
 			}
 			
@@ -60,10 +56,8 @@ public class Main {
 		x = b.x;
 		y = b.y;
 		if(!end[x][y]){
-			flag = false;
 			while(--num >= 0){
 				if(end[x][y]) break;
-				flag = true;
 				y += 1;
 			}
 			
@@ -79,10 +73,8 @@ public class Main {
 		x = c.x;
 		y = c.y;
 		if(!end[x][y]){
-			flag = false;
 			while(--num >= 0){
 				if(end[x][y]) break;
-				flag = true;
 				y += 1;
 			}
 			if(jump[x][y] != 0){
@@ -97,10 +89,8 @@ public class Main {
 		x = d.x;
 		y = d.y;
 		if(!end[x][y]){
-			flag = false;
 			while(--num >= 0){
 				if(end[x][y]) break;
-				flag = true;
 				y += 1;
 			}
 			if(jump[x][y] != 0){
@@ -115,11 +105,7 @@ public class Main {
 		if(arr[a.x][a.y] != 0 && !end[a.x][a.y]
 			&& ((a.x == b.x && a.y == b.y) || (chk[a.x][a.y] == chk[b.x][b.y])
 			|| (a.x == c.x && a.y == c.y) || (chk[a.x][a.y] == chk[c.x][c.y])
-			|| (a.x == d.x && a.y == d.y) || (chk[a.x][a.y] == chk[d.x][d.y]))){
-//			System.out.println(arr[a.x][a.y] + ", " + arr[b.x][b.y] + ", " + arr[c.x][c.y] + ", " + arr[d.x][d.y]);
-//			System.out.println(chk[a.x][a.y] + ", " + chk[b.x][b.y] + ", " + chk[c.x][c.y] + ", " + chk[d.x][d.y]);
-			return false;
-		}
+			|| (a.x == d.x && a.y == d.y) || (chk[a.x][a.y] == chk[d.x][d.y]))) return false;
 		
 		if(arr[b.x][b.y] != 0 && !end[b.x][b.y]
 			&& ((b.x == a.x && b.y == a.y) || (chk[b.x][b.y] == chk[a.x][a.y])
@@ -137,9 +123,6 @@ public class Main {
 			|| (d.x == c.x && d.y == c.y) || (chk[d.x][d.y] == chk[c.x][c.y]))) return false;
 		
 		return true;
-	}
-	private static String pointToString(Point a, Point b, Point c, Point d) {
-		return a.x+","+a.y+","+b.x+","+b.y+","+c.x+","+c.y+","+d.x+","+d.y;
 	}
 	private static void arrInit() {
 		jump[0][5] = 1;//10
