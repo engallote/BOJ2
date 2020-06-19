@@ -104,7 +104,7 @@ public class Main {
 				
 				if(nx < 0 || ny < 0 || nx >= N || ny >= M || arr[nx][ny] == 1) break;
 				if(chk[nx][ny][p.d] <= p.cnt + 1) continue;
-				chk[nx][ny][p.d] = p.cnt + j;
+				chk[nx][ny][p.d] = p.cnt + 1;
 				pq.offer(new Pair(nx, ny, p.d, p.cnt + 1));
 			}
 		}
